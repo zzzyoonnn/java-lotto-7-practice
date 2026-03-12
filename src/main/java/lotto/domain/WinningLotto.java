@@ -14,6 +14,14 @@ public class WinningLotto {
     this.bonusNumber = bonusNumber;
   }
 
+  public List<Integer> getWinningNumbers() {
+    return winningNumbers;
+  }
+
+  public int getBonusNumber() {
+    return bonusNumber;
+  }
+
   private void validate(List<Integer> winningNumbers, int bonusNumber) {
     if (winningNumbers.size() != 6) {
       throw new IllegalArgumentException("[ERROR] 당첨 번호는 6개여야 합니다.");

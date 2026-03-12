@@ -1,16 +1,13 @@
 package lotto;
 
-import lotto.view.InputView;
-import lotto.view.OutputView;
+import lotto.domain.LottoMachine;
 
 public class Application {
-  //private final InputView inputView;
-  //private final OutputView outputView;
 
   public static void main(String[] args) {
     // TODO: 프로그램 구현
-    InputView inputView = new InputView();
-    inputView.getMoney();
+    LottoMachine lottoMachine = new LottoMachine();
+    lottoMachine.run();
 
   }
 }

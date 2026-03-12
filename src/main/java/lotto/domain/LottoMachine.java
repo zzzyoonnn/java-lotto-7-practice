@@ -13,11 +13,13 @@ public class LottoMachine {
     LottoGenerator lottoGenerator = new LottoGenerator(money);
     List<Lotto> lottos = lottoGenerator.run();
 
-    // 출력문 실행
     OutputView.printLottoNumbers(lottos);
 
     List<Integer> winningNumbers = InputView.getWinningNumbers();
     int bonusNumber = InputView.getBonusNumber();
     WinningLotto winningLotto = new WinningLotto(winningNumbers, bonusNumber);
+    LottoResult lottoResult = new LottoResult(lottos, winningLotto);
+
+    OutputView.printResult(lottoResult, money);
   }
 }

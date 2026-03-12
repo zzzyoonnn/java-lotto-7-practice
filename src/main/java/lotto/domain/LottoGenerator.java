@@ -14,16 +14,10 @@ public class LottoGenerator {
     this.money = money;
   }
 
-  public void run() {
-    System.out.println(money + "원을 입력 받았습니다.");
+  public List<Lotto> run() {
     int count = money / LOTTO_PRICE;
-    System.out.println(count + "장의 로또를 구매합니다.");
 
-    List<Lotto> lottos = generateLottos(count);
-    System.out.println(lottos.size() + "개를 구매했습니다.");
-    for (Lotto lotto : lottos) {
-      System.out.println(lotto.getNumbers());
-    }
+    return generateLottos(count);
   }
 
   private List<Lotto> generateLottos(int count) {
@@ -38,6 +32,5 @@ public class LottoGenerator {
     List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
     return new Lotto(numbers);
   }
-
 
 }

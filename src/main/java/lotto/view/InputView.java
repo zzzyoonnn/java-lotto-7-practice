@@ -12,25 +12,45 @@ public class InputView {
 
   public static int getMoney() {
     System.out.println("구입금액을 입력해 주세요.");
-    String input = Console.readLine();
-    return validateMoney(input);
+
+    while (true) {
+      try {
+        String input = Console.readLine();
+        return validateMoney(input);
+      } catch (IllegalArgumentException e) {
+        System.out.println(e.getMessage());
+      }
+    }
   }
 
   public static List<Integer> getWinningNumbers() {
     System.out.println();
     System.out.println("당첨 번호를 입력해 주세요.");
-    String input = Console.readLine();
-    validateWinningNumber(input);
-    return parseNumbers(input);
+
+    while (true) {
+      try {
+        String input = Console.readLine();
+        validateWinningNumber(input);
+        return parseNumbers(input);
+      } catch (IllegalArgumentException e) {
+        System.out.println(e.getMessage());
+      }
+    }
   }
 
   public static int getBonusNumber() {
     System.out.println();
     System.out.println("보너스 번호를 입력해 주세요.");
-    String input = Console.readLine();
-    validateBonusNumber(input);
 
-    return Integer.parseInt(input);
+    while (true) {
+      try {
+        String input = Console.readLine();
+        validateBonusNumber(input);
+        return Integer.parseInt(input);
+      } catch (IllegalArgumentException e) {
+        System.out.println(e.getMessage());
+      }
+    }
   }
 
   private static void validateBonusNumber(String input) {

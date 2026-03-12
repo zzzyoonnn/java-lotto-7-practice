@@ -1,6 +1,9 @@
 package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class InputView {
 
@@ -11,6 +14,48 @@ public class InputView {
     System.out.println("구입금액을 입력해 주세요.");
     String input = Console.readLine();
     return validateMoney(input);
+  }
+
+  public static List<Integer> getWinningNumbers() {
+    System.out.println();
+    System.out.println("당첨 번호를 입력해 주세요.");
+    String input = Console.readLine();
+    validateWinningNumber(input);
+    return parseNumbers(input);
+  }
+
+  public static int getBonusNumber() {
+    System.out.println();
+    System.out.println("보너스 번호를 입력해 주세요.");
+    String input = Console.readLine();
+    validateBonusNumber(input);
+
+    return Integer.parseInt(input);
+  }
+
+  private static void validateBonusNumber(String input) {
+    if (!input.matches("\\d+")) {
+      throw new IllegalArgumentException("[ERROR] 숫자만 입력 가능합니다.");
+    }
+
+    int bonusNumber = Integer.parseInt(input);
+    if (bonusNumber < 1 || bonusNumber > 45) {
+      throw new IllegalArgumentException("[ERROR] 1부터 45까지의 숫자만 입력 가능합니다.");
+    }
+
+  }
+
+  private static void validateWinningNumber(String input) {
+    if (!input.matches("[\\d,]+")) {
+      throw new IllegalArgumentException("[ERROR] 숫자와 쉼표(,)만 입력 가능합니다.");
+    }
+  }
+
+  private static List<Integer> parseNumbers(String input) {
+    return Arrays.stream(input.split(","))
+            .map(String::trim)
+            .map(Integer::parseInt)
+            .collect(Collectors.toList());
   }
 
   private static int validateMoney(String input) {

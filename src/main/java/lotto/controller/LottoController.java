@@ -11,8 +11,10 @@ import lotto.view.OutputView;
 
 public class LottoController {
 
+  private final InputView inputView = new InputView();
+
   public void run() {
-    int money = InputView.getMoney();
+    int money = inputView.getMoney();
     List<Lotto> lottos = new LottoMachine(money).run();
     OutputView.printLottoNumbers(lottos);
 

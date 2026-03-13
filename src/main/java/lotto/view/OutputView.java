@@ -25,7 +25,7 @@ public class OutputView {
     sb.append("5개 일치 (1,500,000원) - ").append(lottoResult.getResults().get(Rank.THIRD)).append("개").append('\n');
     sb.append("5개 일치, 보너스 볼 일치 (30,000,000원) - ").append(lottoResult.getResults().get(Rank.SECOND)).append("개").append('\n');
     sb.append("6개 일치 (2,000,000,000원) - ").append(lottoResult.getResults().get(Rank.FIRST)).append("개").append('\n');
-    sb.append("총 수익률은 ").append(lottoResult.calculateProfitRate(money)).append("%입니다.").append('\n');
+    sb.append("총 수익률은 ").append(String.format("%.1f", lottoResult.calculateProfitRate(money))).append("%입니다.").append('\n');
 
     System.out.print(sb);
   }

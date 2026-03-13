@@ -7,8 +7,14 @@ public class WinningMachine {
 
   public WinningLotto run() {
     List<Integer> winningNumbers = InputView.getWinningNumbers();
-    int bonusNumber = InputView.getBonusNumber();
 
-    return new WinningLotto(winningNumbers, bonusNumber);
+    while (true) {
+      try {
+        int bonusNumber = InputView.getBonusNumber();
+        return new WinningLotto(winningNumbers, bonusNumber);
+      } catch (IllegalArgumentException e) {
+        System.out.println(e.getMessage());
+      }
+    }
   }
 }

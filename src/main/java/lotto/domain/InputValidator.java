@@ -14,6 +14,11 @@ public class InputValidator {
       throw new IllegalArgumentException("[ERROR] 숫자만 입력 가능합니다.");
     }
     int money = Integer.parseInt(input);
+
+    if (money <= 0) {
+      throw new IllegalArgumentException("[ERROR] 구입 금액은 1,000원 이상이어야 합니다.");
+    }
+
     if (money >= MAX_MONEY) {
       throw new IllegalArgumentException("[ERROR] 구입 금액은 " + MAX_MONEY + "원 미만이어야 합니다.");
     }

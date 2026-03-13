@@ -119,15 +119,11 @@
 
 ## 구현 전략
 
-요구사항을 분석한 결과 프로그램의 핵심 요소는 **로또 번호 생성**, **당첨 번호 관리**, **입력과 출력 처리**라고 판단하였다.  
-이에 따라 역할과 책임이 겹치지 않도록 기능을 기준으로 객체를 분리하였다.
+요구사항을 분석한 결과 프로그램의 핵심 요소는 **로또 번호 생성**, **당첨 번호 관리**, **입력과 출력 처리**라고 판단했다. 이에 따라 역할과 책임이 겹치지 않도록 기능을 기준으로 객체를 분리했다.
 
-로또 관련 객체는 `Lotto` 접두어를 사용하여 명명하고,  
-당첨 번호와 관련된 객체는 `Winning` 접두어를 사용하여 명명하였다.
+로또 관련 객체는 `Lotto` 접두어를 사용하여 명명하고, 당첨 번호와 관련된 객체는 `Winning` 접두어를 사용하여 명명했다.
 
-특히 로또 발매 과정에서 **로또 생성과 발매 책임을 분리**하기 위해  
-로또 발매를 담당하는 `LottoMachine` 객체를 두고,  
-실제 번호 생성은 `LottoGenerator`가 담당하도록 설계하였다.
+특히 로또 발매 과정에서 **로또 생성과 발매 책임을 분리**하기 위해 로또 발매를 담당하는 `LottoMachine` 객체를 두고, 실제 번호 생성은 `LottoGenerator`가 담당하도록 설계했다.
 
 - 로또
     - Lotto
@@ -147,9 +143,7 @@
     - OutputView
 
 ## 예외 처리 전략
-요구사항에 따라 사용자가 잘못된 값을 입력할 경우  
-`IllegalArgumentException`을 발생시키고 `[ERROR]`로 시작하는 메시지를 출력한 뒤  
-해당 입력 단계부터 다시 입력을 받도록 구현했다.
+요구사항에 따라 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시키고 `[ERROR]`로 시작하는 메시지를 출력한 뒤, 해당 입력 단계부터 다시 입력을 받도록 구현했다.
 
 ### 구입 금액 입력 검증
 - [ERROR] 로또 구매 금액은 숫자만 입력 가능합니다.
@@ -338,14 +332,14 @@ LottoResult --> Rank
 
 ## 테스트
 
-도메인 로직의 신뢰성을 검증하기 위해 각 클래스에 대한 단위 테스트와 통합 테스트를 작성하였다.
+도메인 로직의 신뢰성을 검증하기 위해 각 클래스에 대한 단위 테스트와 통합 테스트를 작성했다.
 
-- [ApplicationTest]() : 실제 입출력 흐름을 기반으로 로또 발매 전체 흐름을 검증하는 인수 테스트
-- [LottoTest]() : 로또 생성 시 번호 유효성 검증에 대한 단위 테스트
-- [InputValidatorTest]() : 사용자 입력값 검증에 대한 단위 테스트
-- [LottoGeneratorTest]() : 로또 번호 생성 로직에 대한 단위 테스트
-- [LottoResultTest]() : 당첨 결과 집계 및 수익률 계산에 대한 통합 테스트
-- [WinningLottoTest]() : 당첨 로또 번호 유효성 검증에 대한 단위 테스트
+- [ApplicationTest](https://github.com/zzzyoonnn/java-lotto-7-practice/blob/main/src/test/java/lotto/ApplicationTest.java) : 실제 입출력 흐름을 기반으로 로또 발매 전체 흐름을 검증하는 인수 테스트
+- [LottoTest](https://github.com/zzzyoonnn/java-lotto-7-practice/blob/main/src/test/java/lotto/LottoTest.java) : 로또 생성 시 번호 유효성 검증에 대한 단위 테스트
+- [InputValidatorTest](https://github.com/zzzyoonnn/java-lotto-7-practice/blob/main/src/test/java/lotto/domain/InputValidatorTest.java) : 사용자 입력값 검증에 대한 단위 테스트
+- [LottoGeneratorTest](https://github.com/zzzyoonnn/java-lotto-7-practice/blob/main/src/test/java/lotto/domain/LottoGeneratorTest.java) : 로또 번호 생성 로직에 대한 단위 테스트
+- [LottoResultTest](https://github.com/zzzyoonnn/java-lotto-7-practice/blob/main/src/test/java/lotto/domain/LottoResultTest.java) : 당첨 결과 집계 및 수익률 계산에 대한 통합 테스트
+- [WinningLottoTest](https://github.com/zzzyoonnn/java-lotto-7-practice/blob/main/src/test/java/lotto/domain/WinningLottoTest.java) : 당첨 로또 번호 유효성 검증에 대한 단위 테스트
 
 
 ## 패키지 구조
